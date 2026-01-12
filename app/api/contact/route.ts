@@ -7,7 +7,7 @@ export async function POST(request: Request) {
   try {
     // Parse request body
     const body = await request.json()
-    const { name, email, phone, message } = body
+    const { name, email, phone, message, smsOptIn } = body
 
     // Validate required fields
     if (!name || !email) {
@@ -45,6 +45,8 @@ export async function POST(request: Request) {
         <p><strong>Name:</strong> ${name}</p>
         <p><strong>Email:</strong> <a href="mailto:${email}">${email}</a></p>
         ${phone ? `<p><strong>Phone:</strong> <a href="tel:${phone}">${phone}</a></p>` : ''}
+        ${phone && smsOptIn ? `<p style="color: #29899C; font-weight: bold;">✓ Opted in to SMS marketing</p>` : ''}
+        ${phone && !smsOptIn ? `<p style="color: #666;">✗ Did not opt in to SMS marketing</p>` : ''}
         ${message ? `<p><strong>Message:</strong></p><p>${message.replace(/\n/g, '<br>')}</p>` : ''}
         <hr>
         <p style="color: #666; font-size: 12px;">Sent from VeryTargeted.com contact form</p>

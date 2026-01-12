@@ -7,7 +7,8 @@ export default function FinalCTA() {
     name: '',
     email: '',
     phone: '',
-    message: ''
+    message: '',
+    smsOptIn: false
   })
   const [isSubmitting, setIsSubmitting] = useState(false)
   const [submitStatus, setSubmitStatus] = useState<'idle' | 'success' | 'error'>('idle')
@@ -29,7 +30,7 @@ export default function FinalCTA() {
 
       if (response.ok) {
         setSubmitStatus('success')
-        setFormData({ name: '', email: '', phone: '', message: '' })
+        setFormData({ name: '', email: '', phone: '', message: '', smsOptIn: false })
 
         // Reset success message after 5 seconds
         setTimeout(() => setSubmitStatus('idle'), 5000)
@@ -52,9 +53,12 @@ export default function FinalCTA() {
   }
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
+    const target = e.target as HTMLInputElement
+    const value = target.type === 'checkbox' ? target.checked : target.value
+
     setFormData({
       ...formData,
-      [e.target.name]: e.target.value
+      [target.name]: value
     })
   }
 
@@ -180,6 +184,22 @@ export default function FinalCTA() {
                   className="w-full px-4 py-3 bg-[#1a1d24] border border-gray-700 rounded-xl text-white placeholder-gray-500 focus:outline-none focus:border-precision-teal transition-colors"
                   placeholder="(555) 123-4567"
                 />
+
+                {formData.phone && (
+                  <div className="mt-3 flex items-start">
+                    <input
+                      type="checkbox"
+                      id="smsOptIn"
+                      name="smsOptIn"
+                      checked={formData.smsOptIn}
+                      onChange={handleChange}
+                      className="mt-1 h-4 w-4 rounded border-gray-700 bg-[#1a1d24] text-precision-teal focus:ring-precision-teal focus:ring-offset-0"
+                    />
+                    <label htmlFor="smsOptIn" className="ml-2 text-sm text-gray-400">
+                      I agree to receive text messages from VeryTargeted. Message and data rates may apply. Reply STOP to opt out.
+                    </label>
+                  </div>
+                )}
               </div>
 
               <div>
