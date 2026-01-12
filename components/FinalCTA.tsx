@@ -16,17 +16,39 @@ export default function FinalCTA() {
     e.preventDefault()
     setIsSubmitting(true)
 
-    // TODO: Integrate with your backend/email service
-    // For now, this is a placeholder
-    setTimeout(() => {
-      console.log('Form submitted:', formData)
-      setIsSubmitting(false)
-      setSubmitStatus('success')
-      setFormData({ name: '', email: '', phone: '', message: '' })
+    try {
+      const response = await fetch('/api/contact', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(formData),
+      })
 
-      // Reset success message after 5 seconds
+      const data = await response.json()
+
+      if (response.ok) {
+        setSubmitStatus('success')
+        setFormData({ name: '', email: '', phone: '', message: '' })
+
+        // Reset success message after 5 seconds
+        setTimeout(() => setSubmitStatus('idle'), 5000)
+      } else {
+        console.error('Form submission error:', data.error)
+        setSubmitStatus('error')
+
+        // Reset error message after 5 seconds
+        setTimeout(() => setSubmitStatus('idle'), 5000)
+      }
+    } catch (error) {
+      console.error('Form submission error:', error)
+      setSubmitStatus('error')
+
+      // Reset error message after 5 seconds
       setTimeout(() => setSubmitStatus('idle'), 5000)
-    }, 1000)
+    } finally {
+      setIsSubmitting(false)
+    }
   }
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
@@ -104,6 +126,14 @@ export default function FinalCTA() {
               </div>
             )}
 
+            {submitStatus === 'error' && (
+              <div className="mb-6 bg-red-500/10 border border-red-500/30 rounded-xl p-4">
+                <p className="text-red-400 font-semibold">
+                  Oops! Something went wrong. Please try again or email us directly at hello@verytargeted.com
+                </p>
+              </div>
+            )}
+
             <form onSubmit={handleSubmit} className="space-y-4">
               <div>
                 <label htmlFor="name" className="block text-gray-300 mb-2 text-sm font-medium">
@@ -175,10 +205,6 @@ export default function FinalCTA() {
                 {isSubmitting ? 'Sending...' : 'Get Started'}
               </button>
             </form>
-
-            <p className="text-gray-500 text-xs text-center mt-4">
-              [NOTE: Form currently logs to console - integrate with your backend]
-            </p>
           </div>
         </div>
       </div>
