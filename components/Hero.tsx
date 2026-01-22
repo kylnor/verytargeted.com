@@ -10,13 +10,12 @@ export default function Hero() {
         <div className="max-w-4xl">
           {/* Main Headline */}
           <h1 className="text-5xl sm:text-6xl lg:text-7xl font-bold text-white leading-tight mb-6">
-            Stop marketing to everyone.{' '}
-            <span className="block mt-2">Start targeting the homes most likely to sell.</span>
+            You already know most real estate marketing is a waste.
           </h1>
 
           {/* Subheadline */}
           <p className="text-xl sm:text-2xl text-gray-300 mb-10 max-w-3xl">
-            We identify which homes are likely to sell. Then we show them your ad hundreds of times for the price of a single postcard.
+            We target the homes most likely to sell - and show them your ad hundreds of times, for the price of a single postcard.
           </p>
 
           {/* CTA Buttons */}
