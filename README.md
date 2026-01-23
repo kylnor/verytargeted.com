@@ -32,6 +32,21 @@ npm run build
 npm start
 ```
 
+## Pricing Model
+
+**Tiered per-home pricing:**
+- **Basic:** $1/home/month - 2 impressions/day (60/month)
+- **Standard:** $2/home/month - 4 impressions/day (120/month)
+- **Plus:** $4/home/month - 8 impressions/day (240/month)
+- **Premium:** $6/home/month - 16 impressions/day (480/month)
+
+**Setup:** $150 one-time fee
+**Minimum:** 100 homes
+
+**Why 16 impressions/day max?** Average household has 2.5 people × 2.5 devices = ~16 touchpoints. Industry best practice: 4 impressions per device per day avoids ad fatigue.
+
+**Example:** 200 homes × $2 (Standard) = $400/month for 24,000 impressions
+
 ## Brand Colors
 
 - **Stealth Carbon**: `#484B50` - Primary dark gray

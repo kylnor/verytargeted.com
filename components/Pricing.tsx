@@ -2,14 +2,28 @@
 
 import { useState } from 'react'
 
+type PricingTier = 'basic' | 'standard' | 'plus' | 'premium'
+
 export default function Pricing() {
   const [homes, setHomes] = useState(200)
+  const [tier, setTier] = useState<PricingTier>('standard')
   const [comparisonType, setComparisonType] = useState<'postcards' | 'facebook' | 'zillow'>('postcards')
-  const monthlyPrice = homes * 3
+
   const setupFee = 150
 
+  // Tier definitions
+  const tiers = {
+    basic: { price: 1, impressionsPerDay: 2, impressionsPerMonth: 60, label: 'Basic' },
+    standard: { price: 2, impressionsPerDay: 4, impressionsPerMonth: 120, label: 'Standard' },
+    plus: { price: 4, impressionsPerDay: 8, impressionsPerMonth: 240, label: 'Plus' },
+    premium: { price: 6, impressionsPerDay: 16, impressionsPerMonth: 480, label: 'Premium' },
+  }
+
+  const selectedTier = tiers[tier]
+  const monthlyPrice = homes * selectedTier.price
+
   // Calculate value comparison
-  const impressionsPerHome = 400
+  const impressionsPerHome = selectedTier.impressionsPerMonth
   const totalImpressions = homes * impressionsPerHome
 
   // Postcard comparison
@@ -56,11 +70,80 @@ export default function Pricing() {
                 </div>
 
                 <div className="mb-8">
-                  <div className="flex items-baseline mb-2">
-                    <span className="text-5xl font-bold text-white">$3</span>
-                    <span className="text-gray-400 ml-3">per home / month</span>
+                  <label className="block text-gray-300 text-sm mb-4 font-semibold">Choose your impression level:</label>
+
+                  {/* Tier Cards */}
+                  <div className="grid grid-cols-2 gap-3 mb-6">
+                    <button
+                      onClick={() => setTier('basic')}
+                      className={`p-4 rounded-xl border-2 transition-all text-left ${
+                        tier === 'basic'
+                          ? 'border-precision-teal bg-precision-teal/10 shadow-lg'
+                          : 'border-gray-700 bg-gray-800/30 hover:border-gray-600'
+                      }`}
+                    >
+                      <div className="text-xs text-gray-400 uppercase tracking-wide mb-1">Basic</div>
+                      <div className="text-3xl font-bold text-white mb-1">$1</div>
+                      <div className="text-sm text-gray-400">2 per day</div>
+                      <div className="text-xs text-gray-500 mt-1">60/month</div>
+                    </button>
+
+                    <button
+                      onClick={() => setTier('standard')}
+                      className={`p-4 rounded-xl border-2 transition-all text-left ${
+                        tier === 'standard'
+                          ? 'border-precision-teal bg-precision-teal/10 shadow-lg'
+                          : 'border-gray-700 bg-gray-800/30 hover:border-gray-600'
+                      }`}
+                    >
+                      <div className="text-xs text-gray-400 uppercase tracking-wide mb-1">Standard</div>
+                      <div className="text-3xl font-bold text-white mb-1">$2</div>
+                      <div className="text-sm text-gray-400">4 per day</div>
+                      <div className="text-xs text-gray-500 mt-1">120/month</div>
+                    </button>
+
+                    <button
+                      onClick={() => setTier('plus')}
+                      className={`p-4 rounded-xl border-2 transition-all text-left ${
+                        tier === 'plus'
+                          ? 'border-precision-teal bg-precision-teal/10 shadow-lg'
+                          : 'border-gray-700 bg-gray-800/30 hover:border-gray-600'
+                      }`}
+                    >
+                      <div className="text-xs text-gray-400 uppercase tracking-wide mb-1">Plus</div>
+                      <div className="text-3xl font-bold text-white mb-1">$4</div>
+                      <div className="text-sm text-gray-400">8 per day</div>
+                      <div className="text-xs text-gray-500 mt-1">240/month</div>
+                    </button>
+
+                    <button
+                      onClick={() => setTier('premium')}
+                      className={`p-4 rounded-xl border-2 transition-all text-left relative ${
+                        tier === 'premium'
+                          ? 'border-precision-teal bg-precision-teal/10 shadow-lg'
+                          : 'border-gray-700 bg-gray-800/30 hover:border-gray-600'
+                      }`}
+                    >
+                      <div className="text-xs text-precision-teal uppercase tracking-wide mb-1 font-semibold">Premium</div>
+                      <div className="text-3xl font-bold text-white mb-1">$6</div>
+                      <div className="text-sm text-gray-400">16 per day</div>
+                      <div className="text-xs text-gray-500 mt-1">480/month</div>
+                      <div className="absolute top-2 right-2 text-xs bg-precision-teal text-white px-2 py-1 rounded">Max</div>
+                    </button>
                   </div>
-                  <p className="text-sm text-gray-400 mt-2">100 home minimum</p>
+
+                  <div className="bg-gray-800/50 rounded-lg p-4 border border-gray-700">
+                    <div className="flex items-baseline justify-between">
+                      <div>
+                        <span className="text-gray-400 text-sm">Selected:</span>
+                        <span className="text-white font-semibold text-lg ml-2">{selectedTier.label}</span>
+                      </div>
+                      <div className="text-right">
+                        <div className="text-2xl font-bold text-precision-teal">${selectedTier.price}<span className="text-sm text-gray-400">/home</span></div>
+                        <div className="text-xs text-gray-500">100 home minimum</div>
+                      </div>
+                    </div>
+                  </div>
                 </div>
 
                 <div className="bg-precision-teal/10 border border-precision-teal/30 rounded-xl p-6">
@@ -87,7 +170,7 @@ export default function Pricing() {
                             {totalImpressions.toLocaleString()} impressions/month
                           </p>
                           <p className="text-gray-400 text-xs">
-                            {homes} homes × 400 impressions each
+                            {homes} homes × {selectedTier.impressionsPerMonth} impressions each
                           </p>
                         </div>
                         <div className="border-t border-precision-teal/20 pt-3">
@@ -213,6 +296,30 @@ export default function Pricing() {
               <p className="text-gray-400 text-sm mt-4">
                 No long-term contracts. Cancel anytime.
               </p>
+            </div>
+          </div>
+        </div>
+
+        {/* Why 16 Impressions Callout */}
+        <div className="max-w-4xl mx-auto mt-12">
+          <div className="bg-gradient-to-br from-precision-teal/10 to-precision-teal/5 border border-precision-teal/30 rounded-2xl p-8">
+            <div className="flex items-start gap-4">
+              <div className="flex-shrink-0">
+                <div className="w-12 h-12 bg-precision-teal/20 rounded-full flex items-center justify-center">
+                  <svg className="w-6 h-6 text-precision-teal" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+                  </svg>
+                </div>
+              </div>
+              <div>
+                <h3 className="text-xl font-bold text-white mb-3">Why 16 impressions per day?</h3>
+                <p className="text-gray-300 mb-3 leading-relaxed">
+                  Average household: <span className="text-white font-semibold">2.5 people × 2.5 devices = ~16 daily touchpoints</span>
+                </p>
+                <p className="text-gray-300 leading-relaxed">
+                  Industry research shows <span className="text-white font-semibold">4 impressions per device per day</span> is the sweet spot—visible without being annoying. At 16 impressions/day, we maximize household reach while staying under the ad fatigue threshold.
+                </p>
+              </div>
             </div>
           </div>
         </div>

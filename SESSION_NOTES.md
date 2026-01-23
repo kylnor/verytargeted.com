@@ -184,10 +184,15 @@ SESSION_NOTES.md    → This file!
 ```
 
 ### Update Pricing
-**File:** `components/Pricing.tsx:4-6`
+**File:** `components/Pricing.tsx:14-21`
 ```typescript
+const tiers = {
+  basic: { price: 1, impressionsPerDay: 2, impressionsPerMonth: 60, label: 'Basic' },
+  standard: { price: 2, impressionsPerDay: 4, impressionsPerMonth: 120, label: 'Standard' },
+  plus: { price: 4, impressionsPerDay: 8, impressionsPerMonth: 240, label: 'Plus' },
+  premium: { price: 6, impressionsPerDay: 16, impressionsPerMonth: 480, label: 'Premium' },
+}
 const setupFee = 150
-const pricePerHome = 3
 const minHomes = 100
 ```
 
@@ -410,13 +415,32 @@ className="bg-white/10 text-white px-8 py-4 rounded-full text-lg font-semibold h
 
 ## 📊 Metrics & Stats to Remember
 
-### Core Numbers
-- **400** impressions per home per month
-- **$3** per home per month
+### Core Numbers - Tiered Pricing
+**Basic Tier:** $1/home/month
+- **2** impressions per day per home
+- **60** impressions per month per home
+
+**Standard Tier:** $2/home/month
+- **4** impressions per day per home
+- **120** impressions per month per home
+
+**Plus Tier:** $4/home/month
+- **8** impressions per day per home
+- **240** impressions per month per home
+
+**Premium Tier:** $6/home/month
+- **16** impressions per day per home
+- **480** impressions per month per home
+
+**Ad Fatigue Science:**
+- Average household: 2.5 people × 2.5 devices = ~16 touchpoints
+- Industry best practice: 4 impressions per device per day
+- 16/day maximum avoids ad fatigue while maximizing reach
+
+**All Tiers:**
 - **$150** one-time setup fee
 - **100** home minimum
 - **90%** of digital ad dollars go to programmatic
-- **$0.0075** cost per impression
 
 ### Competitor Comparison Math
 ```typescript
