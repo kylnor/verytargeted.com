@@ -1,19 +1,19 @@
 export default function SocialProof() {
   const testimonials = [
     {
-      quote: "Absolutely amazing! They didn't just say 'who do you want to target,' I built my list with them and we started in less than a week! When I got my first marketing report I was shocked how many impressions I was getting, and so were my clients!",
+      quote: "Absolutely amazing! They didn't say 'who do you want to target,' I built my list with them and we started in less than a week! When I got my first marketing report I was shocked how many impressions I was getting, and so were my clients!",
       author: "Harmony",
       role: "",
       initial: "H"
     },
     {
-      quote: "I wanted to target a high end event in my city, it took two emails and then my ad was shown to more billionaires in a week than I could any other way. The speed and power of these are outstanding!",
+      quote: "I wanted to target a high end event in my city. Two emails and my ad reached more billionaires in a week than I could any other way. The speed and power of these are outstanding!",
       author: "Gene",
       role: "",
       initial: "G"
     },
     {
-      quote: "I had been advertising to a high end community for a year and got nothing from it, I added VeryTargeted to it and I got my first listing 3 weeks later! The seller said 'I just see your ads everywhere!' I'm so grateful!",
+      quote: "I had been advertising to a high end community for a year and got nothing from it. I added VeryTargeted and I got my first listing 3 weeks later! The seller said 'I see your ads everywhere!' I'm so grateful!",
       author: "Lisa",
       role: "",
       initial: "L"
@@ -38,7 +38,7 @@ export default function SocialProof() {
           {testimonials.map((testimonial, index) => (
             <div
               key={index}
-              className="bg-gray-50 rounded-2xl p-8 border border-gray-200 hover:border-precision-teal/30 transition-all"
+              className="bg-gray-50 rounded-2xl p-8 border border-gray-200 hover:border-precision-teal/30 transition-all flex flex-col"
             >
               {/* Quote icon */}
               <svg className="w-10 h-10 text-precision-teal/30 mb-4" fill="currentColor" viewBox="0 0 24 24">
@@ -46,12 +46,12 @@ export default function SocialProof() {
               </svg>
 
               {/* Quote */}
-              <p className="text-gray-600 mb-6 leading-relaxed italic">
+              <p className="text-gray-600 mb-6 leading-relaxed italic flex-grow">
                 {testimonial.quote}
               </p>
 
               {/* Author */}
-              <div className="flex items-center space-x-3 pt-6 border-t border-gray-200">
+              <div className="flex items-center space-x-3 pt-6 border-t border-gray-200 mt-auto">
                 <div className="w-12 h-12 bg-precision-teal/10 rounded-full flex items-center justify-center text-precision-teal font-bold">
                   {testimonial.initial}
                 </div>
@@ -71,21 +71,24 @@ export default function SocialProof() {
           <div className="grid md:grid-cols-3 gap-8 text-center">
             <div>
               <div className="text-5xl font-bold text-precision-teal mb-2">
-                400+
+                60-480
               </div>
               <div className="text-gray-300 text-lg">
-                Average impressions per home/month
+                Impressions per home/month
+              </div>
+              <div className="text-gray-400 text-sm mt-2">
+                Choose your tier
               </div>
             </div>
             <div>
               <div className="text-5xl font-bold text-precision-teal mb-2">
-                $0.0075
+                $1-6
               </div>
               <div className="text-gray-300 text-lg">
-                Cost per impression
+                Per home per month
               </div>
               <div className="text-gray-400 text-sm mt-2">
-                vs. $1-2 per postcard impression
+                vs. $1.50 per postcard
               </div>
             </div>
             <div>

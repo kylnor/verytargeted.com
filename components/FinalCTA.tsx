@@ -69,38 +69,34 @@ export default function FinalCTA() {
           {/* Left side - CTA content */}
           <div>
             <h2 className="text-4xl sm:text-5xl font-bold text-white mb-6">
-              Ready to stop wasting money on marketing that doesn't work?
+              Get a custom proposal with zero pressure.
             </h2>
             <p className="text-xl text-gray-300 mb-8 leading-relaxed">
-              Let's talk about your market, your goals, and how VeryTargeted can help you reach the right homes at the right time.
+              Tell us your market. We'll send you a custom proposal, video walkthrough, and your list of homes most likely to sell. No hard sell. No follow-up calls. You decide what to do with the information.
             </p>
 
             <div className="space-y-6">
               <div className="flex items-start space-x-4">
                 <div className="w-12 h-12 bg-precision-teal/10 rounded-xl flex items-center justify-center flex-shrink-0">
                   <svg className="w-6 h-6 text-precision-teal" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2m-3 7h3m-3 4h3m-6-4h.01M9 16h.01" />
                   </svg>
                 </div>
                 <div>
-                  <h3 className="text-white font-semibold mb-1">Email us</h3>
-                  <a href="mailto:hello@verytargeted.com" className="text-precision-teal hover:text-precision-teal/80 transition-colors">
-                    hello@verytargeted.com
-                  </a>
+                  <h3 className="text-white font-semibold mb-1">Your "likely to sell" list</h3>
+                  <p className="text-gray-400">See the homes most ready to move in your market</p>
                 </div>
               </div>
 
               <div className="flex items-start space-x-4">
                 <div className="w-12 h-12 bg-precision-teal/10 rounded-xl flex items-center justify-center flex-shrink-0">
                   <svg className="w-6 h-6 text-precision-teal" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z" />
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 10l4.553-2.276A1 1 0 0121 8.618v6.764a1 1 0 01-1.447.894L15 14M5 18h8a2 2 0 002-2V8a2 2 0 00-2-2H5a2 2 0 00-2 2v8a2 2 0 002 2z" />
                   </svg>
                 </div>
                 <div>
-                  <h3 className="text-white font-semibold mb-1">Call or text</h3>
-                  <a href="tel:+18447322732" className="text-precision-teal hover:text-precision-teal/80 transition-colors">
-                    844.732.2732
-                  </a>
+                  <h3 className="text-white font-semibold mb-1">Video walkthrough</h3>
+                  <p className="text-gray-400">See exactly how this works for your area</p>
                 </div>
               </div>
 
@@ -111,8 +107,8 @@ export default function FinalCTA() {
                   </svg>
                 </div>
                 <div>
-                  <h3 className="text-white font-semibold mb-1">No obligation</h3>
-                  <p className="text-gray-400">Just a conversation about your needs</p>
+                  <h3 className="text-white font-semibold mb-1">Zero pressure</h3>
+                  <p className="text-gray-400">No hard sell. No follow-ups. You decide.</p>
                 </div>
               </div>
             </div>

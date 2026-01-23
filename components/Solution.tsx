@@ -2,18 +2,18 @@ export default function Solution() {
   const steps = [
     {
       number: '1',
-      title: 'You give us the list',
-      description: 'Your farm, past clients, or specific addresses',
+      title: 'We identify the homes most likely to sell',
+      description: 'Using predictive data and AI, or target your own farm area, past clients, or specific addresses',
     },
     {
       number: '2',
-      title: 'We launch the campaign',
-      description: 'Ads across premium channels, targeted to those homes',
+      title: 'We build and launch your campaign',
+      description: 'Ads across streaming TV, mobile, and web. Targeted to those specific households',
     },
     {
       number: '3',
       title: 'They see you everywhere',
-      description: 'Hundreds of impressions per home, every month',
+      description: 'Up to 480 impressions per home per month, across every device they use',
     },
   ]
 
@@ -26,10 +26,10 @@ export default function Solution() {
             We target the homes. You get the listings.
           </h2>
           <p className="text-xl text-gray-300 mb-6 leading-relaxed">
-            We use predictive data to identify which homes are most likely to sell. Then we run your ads across streaming TV, mobile apps, and web—directly to those households.
+            We use predictive data to identify which homes are most likely to sell. Then we run your ads across streaming TV, mobile apps, and web. Directly to those households.
           </p>
           <p className="text-xl text-gray-300 leading-relaxed">
-            No wasted impressions. No guessing. Just your name and face, hundreds of times, in front of the people who matter.
+            No wasted impressions. No guessing. Your name and face, hundreds of times, in front of the people who matter.
           </p>
         </div>
 

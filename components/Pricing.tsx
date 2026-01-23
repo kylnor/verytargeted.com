@@ -52,7 +52,7 @@ export default function Pricing() {
             Simple, Transparent Pricing
           </h2>
           <p className="text-xl text-gray-300">
-            No hidden fees. No complicated tiers. Just results.
+            No hidden fees. No complicated tiers. Results only.
           </p>
         </div>
 
@@ -70,78 +70,41 @@ export default function Pricing() {
                 </div>
 
                 <div className="mb-8">
-                  <label className="block text-gray-300 text-sm mb-4 font-semibold">Choose your impression level:</label>
+                  <label className="block text-gray-300 text-sm mb-4 font-semibold">Impressions per home per day:</label>
 
-                  {/* Tier Cards */}
-                  <div className="grid grid-cols-2 gap-3 mb-6">
-                    <button
-                      onClick={() => setTier('basic')}
-                      className={`p-4 rounded-xl border-2 transition-all text-left ${
-                        tier === 'basic'
-                          ? 'border-precision-teal bg-precision-teal/10 shadow-lg'
-                          : 'border-gray-700 bg-gray-800/30 hover:border-gray-600'
-                      }`}
-                    >
-                      <div className="text-xs text-gray-400 uppercase tracking-wide mb-1">Basic</div>
-                      <div className="text-3xl font-bold text-white mb-1">$1</div>
-                      <div className="text-sm text-gray-400">2 per day</div>
-                      <div className="text-xs text-gray-500 mt-1">60/month</div>
-                    </button>
-
-                    <button
-                      onClick={() => setTier('standard')}
-                      className={`p-4 rounded-xl border-2 transition-all text-left ${
-                        tier === 'standard'
-                          ? 'border-precision-teal bg-precision-teal/10 shadow-lg'
-                          : 'border-gray-700 bg-gray-800/30 hover:border-gray-600'
-                      }`}
-                    >
-                      <div className="text-xs text-gray-400 uppercase tracking-wide mb-1">Standard</div>
-                      <div className="text-3xl font-bold text-white mb-1">$2</div>
-                      <div className="text-sm text-gray-400">4 per day</div>
-                      <div className="text-xs text-gray-500 mt-1">120/month</div>
-                    </button>
-
-                    <button
-                      onClick={() => setTier('plus')}
-                      className={`p-4 rounded-xl border-2 transition-all text-left ${
-                        tier === 'plus'
-                          ? 'border-precision-teal bg-precision-teal/10 shadow-lg'
-                          : 'border-gray-700 bg-gray-800/30 hover:border-gray-600'
-                      }`}
-                    >
-                      <div className="text-xs text-gray-400 uppercase tracking-wide mb-1">Plus</div>
-                      <div className="text-3xl font-bold text-white mb-1">$4</div>
-                      <div className="text-sm text-gray-400">8 per day</div>
-                      <div className="text-xs text-gray-500 mt-1">240/month</div>
-                    </button>
-
-                    <button
-                      onClick={() => setTier('premium')}
-                      className={`p-4 rounded-xl border-2 transition-all text-left relative ${
-                        tier === 'premium'
-                          ? 'border-precision-teal bg-precision-teal/10 shadow-lg'
-                          : 'border-gray-700 bg-gray-800/30 hover:border-gray-600'
-                      }`}
-                    >
-                      <div className="text-xs text-precision-teal uppercase tracking-wide mb-1 font-semibold">Premium</div>
-                      <div className="text-3xl font-bold text-white mb-1">$6</div>
-                      <div className="text-sm text-gray-400">16 per day</div>
-                      <div className="text-xs text-gray-500 mt-1">480/month</div>
-                      <div className="absolute top-2 right-2 text-xs bg-precision-teal text-white px-2 py-1 rounded">Max</div>
-                    </button>
+                  {/* Slider */}
+                  <div className="mb-6">
+                    <input
+                      type="range"
+                      min="0"
+                      max="3"
+                      step="1"
+                      value={['basic', 'standard', 'plus', 'premium'].indexOf(tier)}
+                      onChange={(e) => {
+                        const tierNames: PricingTier[] = ['basic', 'standard', 'plus', 'premium']
+                        setTier(tierNames[Number(e.target.value)])
+                      }}
+                      className="w-full h-2 bg-gray-700 rounded-lg appearance-none cursor-pointer accent-precision-teal"
+                      style={{
+                        background: `linear-gradient(to right, #29899C 0%, #29899C ${(['basic', 'standard', 'plus', 'premium'].indexOf(tier) / 3) * 100}%, #4B5563 ${(['basic', 'standard', 'plus', 'premium'].indexOf(tier) / 3) * 100}%, #4B5563 100%)`
+                      }}
+                    />
+                    <div className="flex justify-between text-xs text-gray-400 mt-3">
+                      <span className={tier === 'basic' ? 'text-precision-teal font-bold' : ''}>2/day</span>
+                      <span className={tier === 'standard' ? 'text-precision-teal font-bold' : ''}>4/day</span>
+                      <span className={tier === 'plus' ? 'text-precision-teal font-bold' : ''}>8/day</span>
+                      <span className={tier === 'premium' ? 'text-precision-teal font-bold' : ''}>16/day</span>
+                    </div>
                   </div>
 
-                  <div className="bg-gray-800/50 rounded-lg p-4 border border-gray-700">
-                    <div className="flex items-baseline justify-between">
-                      <div>
-                        <span className="text-gray-400 text-sm">Selected:</span>
-                        <span className="text-white font-semibold text-lg ml-2">{selectedTier.label}</span>
-                      </div>
-                      <div className="text-right">
-                        <div className="text-2xl font-bold text-precision-teal">${selectedTier.price}<span className="text-sm text-gray-400">/home</span></div>
-                        <div className="text-xs text-gray-500">100 home minimum</div>
-                      </div>
+                  <div className="bg-gray-800/50 rounded-lg p-6 border border-gray-700">
+                    <div className="text-center mb-4">
+                      <div className="text-5xl font-bold text-precision-teal mb-2">${selectedTier.price}</div>
+                      <div className="text-gray-400 text-sm">per home / month</div>
+                    </div>
+                    <div className="text-center text-gray-300">
+                      <div className="text-lg font-semibold mb-1">{selectedTier.impressionsPerMonth} impressions/month</div>
+                      <div className="text-sm text-gray-500">100 home minimum</div>
                     </div>
                   </div>
                 </div>
@@ -167,21 +130,21 @@ export default function Pricing() {
                       <>
                         <div>
                           <p className="text-white font-bold text-lg">
-                            {totalImpressions.toLocaleString()} impressions/month
+                            Direct Mail
                           </p>
                           <p className="text-gray-400 text-xs">
-                            {homes} homes × {selectedTier.impressionsPerMonth} impressions each
+                            Traditional postcard campaigns
                           </p>
                         </div>
                         <div className="border-t border-precision-teal/20 pt-3">
-                          <p className="text-gray-300 text-sm leading-relaxed">
-                            To mail {totalImpressions.toLocaleString()} postcards would cost{' '}
-                            <span className="text-white font-bold text-xl block mt-1">
-                              ${postcardEquivalent.toLocaleString()}/month
-                            </span>
+                          <p className="text-gray-300 text-sm leading-relaxed mb-3">
+                            <span className="text-white font-semibold">One postcard = one impression.</span>
                           </p>
-                          <p className="text-gray-400 text-xs mt-2">
-                            vs. ${monthlyPrice.toLocaleString()}/month with VeryTargeted
+                          <p className="text-gray-300 text-sm leading-relaxed">
+                            We give them <span className="text-white font-bold">{selectedTier.impressionsPerMonth} impressions</span> across TV, mobile, and web for <span className="text-precision-teal font-bold">${selectedTier.price}/month</span>.
+                          </p>
+                          <p className="text-gray-400 text-xs mt-3">
+                            {selectedTier.impressionsPerMonth}x more reach for less than {selectedTier.impressionsPerMonth} postcards
                           </p>
                         </div>
                       </>
@@ -191,21 +154,21 @@ export default function Pricing() {
                       <>
                         <div>
                           <p className="text-white font-bold text-lg">
-                            {totalImpressions.toLocaleString()} impressions on your targets
+                            Facebook Ads
                           </p>
                           <p className="text-gray-400 text-xs">
-                            {homes} specific homes
+                            Zip code targeting
                           </p>
                         </div>
                         <div className="border-t border-precision-teal/20 pt-3">
-                          <p className="text-gray-300 text-sm leading-relaxed">
-                            Facebook can't target specific homes—only zip codes. To reach your {homes} homes, you'd need{' '}
-                            <span className="text-white font-bold text-xl block mt-1">
-                              ${facebookCost.toLocaleString()}/month
-                            </span>
+                          <p className="text-gray-300 text-sm leading-relaxed mb-3">
+                            <span className="text-white font-semibold">Facebook shows your ad to thousands of random people in a zip code.</span>
                           </p>
-                          <p className="text-gray-400 text-xs mt-2">
-                            With {wastePercentage}% wasted on wrong homes • vs. ${monthlyPrice.toLocaleString()}/month with VeryTargeted
+                          <p className="text-gray-300 text-sm leading-relaxed mb-3">
+                            We show your ad <span className="text-precision-teal font-bold">{selectedTier.impressionsPerMonth} times</span> to your specific {homes} homes.
+                          </p>
+                          <p className="text-gray-400 text-xs">
+                            Zero waste. Your targets, seeing you everywhere.
                           </p>
                         </div>
                       </>
@@ -229,7 +192,7 @@ export default function Pricing() {
                             </span>
                           </p>
                           <p className="text-gray-400 text-xs mt-2">
-                            That's {monthsCovered} months of VeryTargeted • Plus you keep 100% of your commission
+                            {monthsCovered} months of VeryTargeted • Plus you keep 100% of your commission
                           </p>
                         </div>
                       </>
@@ -317,7 +280,7 @@ export default function Pricing() {
                   Average household: <span className="text-white font-semibold">2.5 people × 2.5 devices = ~16 daily touchpoints</span>
                 </p>
                 <p className="text-gray-300 leading-relaxed">
-                  Industry research shows <span className="text-white font-semibold">4 impressions per device per day</span> is the sweet spot—visible without being annoying. At 16 impressions/day, we maximize household reach while staying under the ad fatigue threshold.
+                  Industry research shows <span className="text-white font-semibold">4 impressions per device per day</span> is optimal. Visible without being annoying. At 16 impressions/day, we maximize household reach while staying under the ad fatigue threshold.
                 </p>
               </div>
             </div>

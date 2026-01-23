@@ -10,12 +10,16 @@ export default function Hero() {
         <div className="max-w-4xl">
           {/* Main Headline */}
           <h1 className="text-5xl sm:text-6xl lg:text-7xl font-bold text-white leading-tight mb-6">
-            You already know most real estate marketing is a waste.
+            Stop wasting money on people who will never sell.
           </h1>
 
           {/* Subheadline */}
-          <p className="text-xl sm:text-2xl text-gray-300 mb-10 max-w-3xl">
-            We target the homes most likely to sell - and show them your ad hundreds of times, for the price of a single postcard.
+          <p className="text-xl sm:text-2xl text-gray-300 mb-4 max-w-3xl">
+            The homes most likely to sell are already decided. We identify them, then show them your ad up to 480 times a month.
+          </p>
+
+          <p className="text-lg sm:text-xl text-gray-400 mb-10 max-w-3xl">
+            No more postcards to the trash. No more Facebook ads to the wrong zip codes. No more Zillow bidding wars.
           </p>
 
           {/* CTA Buttons */}
@@ -30,7 +34,7 @@ export default function Hero() {
               href="#contact"
               className="inline-flex items-center justify-center bg-stealth-carbon/50 text-white px-8 py-4 rounded-full text-lg font-semibold hover:bg-stealth-carbon/70 transition-all border border-gray-700"
             >
-              Book a Call
+              Get Your Proposal
             </a>
           </div>
         </div>
