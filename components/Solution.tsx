@@ -2,18 +2,18 @@ export default function Solution() {
   const steps = [
     {
       number: '1',
-      title: 'We identify the homes most likely to sell',
-      description: 'Using predictive data and AI, or target your own farm area, past clients, or specific addresses',
+      title: 'AI finds the homes most likely to sell this year',
+      description: 'Or you give us your farm area, past clients, specific streets—whatever you want to own',
     },
     {
       number: '2',
-      title: 'We build and launch your campaign',
-      description: 'Ads across streaming TV, mobile, and web. Targeted to those specific households',
+      title: 'We build your campaign',
+      description: 'Streaming TV. Mobile apps. Every website they visit. Targeted to those exact households',
     },
     {
       number: '3',
-      title: 'They see you everywhere',
-      description: 'Up to 480 impressions per home per month, across every device they use',
+      title: 'They see your face everywhere',
+      description: 'Up to 480 times a month. Every device they own',
     },
   ]
 
@@ -23,13 +23,10 @@ export default function Solution() {
         {/* Main content */}
         <div className="max-w-3xl mx-auto text-center mb-16">
           <h2 className="text-4xl sm:text-5xl font-bold text-white mb-8">
-            We target the homes. You get the listings.
+            We target the homes. You close the deals.
           </h2>
-          <p className="text-xl text-gray-300 mb-6 leading-relaxed">
-            We use predictive data to identify which homes are most likely to sell. Then we run your ads across streaming TV, mobile apps, and web. Directly to those households.
-          </p>
           <p className="text-xl text-gray-300 leading-relaxed">
-            No wasted impressions. No guessing. Your name and face, hundreds of times, in front of the people who matter.
+            Zero waste. Zero guessing. Your name, your face, hundreds of times—in front of people who are actually selling.
           </p>
         </div>
 

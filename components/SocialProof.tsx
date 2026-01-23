@@ -26,10 +26,10 @@ export default function SocialProof() {
         {/* Header */}
         <div className="text-center max-w-3xl mx-auto mb-16">
           <h2 className="text-4xl sm:text-5xl font-bold text-stealth-carbon mb-6">
-            Real Agents. Real Results.
+            Real Agents. Real Numbers.
           </h2>
           <p className="text-xl text-gray-600">
-            See what happens when you stop wasting money and start reaching the right homes.
+            Three agents stopped mailing postcards to everyone. Started showing ads to the right people. Here's what happened.
           </p>
         </div>
 
@@ -67,38 +67,38 @@ export default function SocialProof() {
         </div>
 
         {/* Stats section */}
-        <div className="mt-20 bg-gradient-to-r from-stealth-carbon to-stealth-carbon/90 rounded-3xl p-12">
-          <div className="grid md:grid-cols-3 gap-8 text-center">
-            <div>
-              <div className="text-5xl font-bold text-precision-teal mb-2">
+        <div className="mt-20 bg-gradient-to-r from-stealth-carbon to-stealth-carbon/90 rounded-3xl p-16 border-4 border-precision-teal/30">
+          <div className="grid md:grid-cols-3 gap-12 text-center">
+            <div className="bg-precision-teal/10 rounded-2xl p-8 border-2 border-precision-teal/30">
+              <div className="text-7xl font-bold text-precision-teal mb-4">
                 60-480
               </div>
-              <div className="text-gray-300 text-lg">
+              <div className="text-white text-2xl font-bold mb-2">
                 Impressions per home/month
               </div>
-              <div className="text-gray-400 text-sm mt-2">
+              <div className="text-gray-400 text-base">
                 Choose your tier
               </div>
             </div>
-            <div>
-              <div className="text-5xl font-bold text-precision-teal mb-2">
+            <div className="bg-precision-teal/10 rounded-2xl p-8 border-2 border-precision-teal/30">
+              <div className="text-7xl font-bold text-precision-teal mb-4">
                 $1-6
               </div>
-              <div className="text-gray-300 text-lg">
+              <div className="text-white text-2xl font-bold mb-2">
                 Per home per month
               </div>
-              <div className="text-gray-400 text-sm mt-2">
+              <div className="text-gray-400 text-base">
                 vs. $1.50 per postcard
               </div>
             </div>
-            <div>
-              <div className="text-5xl font-bold text-precision-teal mb-2">
+            <div className="bg-precision-teal/10 rounded-2xl p-8 border-2 border-precision-teal/30">
+              <div className="text-7xl font-bold text-precision-teal mb-4">
                 100%
               </div>
-              <div className="text-gray-300 text-lg">
+              <div className="text-white text-2xl font-bold mb-2">
                 Household-level accuracy
               </div>
-              <div className="text-gray-400 text-sm mt-2">
+              <div className="text-gray-400 text-base">
                 Not zip codes or demographics
               </div>
             </div>

@@ -49,15 +49,15 @@ export default function Pricing() {
         {/* Header */}
         <div className="text-center max-w-3xl mx-auto mb-16">
           <h2 className="text-4xl sm:text-5xl font-bold text-white mb-6">
-            Simple, Transparent Pricing
+            Four Tiers. One Setup Fee. Zero BS.
           </h2>
           <p className="text-xl text-gray-300">
-            No hidden fees. No complicated tiers. Results only.
+            Pick your impression frequency. We handle everything else.
           </p>
         </div>
 
         {/* Pricing Card */}
-        <div className="max-w-4xl mx-auto">
+        <div className="max-w-7xl mx-auto">
           <div className="bg-gradient-to-br from-stealth-carbon to-stealth-carbon/80 rounded-3xl p-8 sm:p-12 border border-gray-700 shadow-2xl">
             <div className="grid md:grid-cols-2 gap-12">
               {/* Left side - Pricing details */}
@@ -127,51 +127,79 @@ export default function Pricing() {
 
                   <div className="space-y-3">
                     {comparisonType === 'postcards' && (
-                      <>
-                        <div>
-                          <p className="text-white font-bold text-lg">
-                            Direct Mail
-                          </p>
-                          <p className="text-gray-400 text-xs">
-                            Traditional postcard campaigns
-                          </p>
+                      <div>
+                        <p className="text-white font-bold text-lg text-center mb-4">
+                          Direct Mail Math
+                        </p>
+
+                        <div className="grid grid-cols-2 gap-4 items-center">
+                          {/* Postcard Box - Gray/Waste */}
+                          <div className="bg-gray-700/20 border-2 border-gray-500/50 rounded-xl p-6">
+                            <div className="text-center">
+                              <p className="text-gray-400 font-bold text-sm uppercase tracking-wide mb-2">Direct Mail</p>
+                              <p className="text-white text-3xl font-bold mb-2">1 impression</p>
+                              <p className="text-gray-400 text-sm mb-3">Per $1.50 postcard. Once a month. Maybe.</p>
+                              <div className="inline-block bg-gray-600/20 px-4 py-2 rounded-lg">
+                                <p className="text-gray-300 font-bold text-xl">Mailbox (once a week)</p>
+                              </div>
+                            </div>
+                          </div>
+
+                          {/* VeryTargeted Box - Teal/Success */}
+                          <div className="bg-precision-teal/20 border-2 border-precision-teal rounded-xl p-6">
+                            <div className="text-center">
+                              <p className="text-precision-teal font-bold text-sm uppercase tracking-wide mb-2">VeryTargeted</p>
+                              <p className="text-white text-3xl font-bold mb-2">{selectedTier.impressionsPerMonth} impressions</p>
+                              <p className="text-gray-300 text-sm mb-3">For ${selectedTier.price}/month. TV, mobile, web.</p>
+                              <div className="inline-block bg-precision-teal/20 px-4 py-2 rounded-lg">
+                                <p className="text-precision-teal font-bold text-xl">{selectedTier.impressionsPerMonth}x more reach</p>
+                              </div>
+                            </div>
+                          </div>
                         </div>
-                        <div className="border-t border-precision-teal/20 pt-3">
-                          <p className="text-gray-300 text-sm leading-relaxed mb-3">
-                            <span className="text-white font-semibold">One postcard = one impression.</span>
-                          </p>
-                          <p className="text-gray-300 text-sm leading-relaxed">
-                            We give them <span className="text-white font-bold">{selectedTier.impressionsPerMonth} impressions</span> across TV, mobile, and web for <span className="text-precision-teal font-bold">${selectedTier.price}/month</span>.
-                          </p>
-                          <p className="text-gray-400 text-xs mt-3">
-                            {selectedTier.impressionsPerMonth}x more reach for less than {selectedTier.impressionsPerMonth} postcards
-                          </p>
+
+                        <div className="text-center pt-4">
+                          <p className="text-gray-400 text-sm">Devices they actually use—not a mailbox they check once a week.</p>
                         </div>
-                      </>
+                      </div>
                     )}
 
                     {comparisonType === 'facebook' && (
-                      <>
-                        <div>
-                          <p className="text-white font-bold text-lg">
-                            Facebook Ads
-                          </p>
-                          <p className="text-gray-400 text-xs">
-                            Zip code targeting
-                          </p>
+                      <div>
+                        <p className="text-white font-bold text-lg text-center mb-4">
+                          Facebook Targeting
+                        </p>
+
+                        <div className="grid grid-cols-2 gap-4 items-center">
+                          {/* Facebook Box - Red/Warning */}
+                          <div className="bg-red-900/20 border-2 border-red-500/50 rounded-xl p-6">
+                            <div className="text-center">
+                              <p className="text-red-400 font-bold text-sm uppercase tracking-wide mb-2">Facebook</p>
+                              <p className="text-white text-3xl font-bold mb-2">5,000 impressions</p>
+                              <p className="text-red-300 text-sm mb-3">4,800 are renters, wrong price, or not selling</p>
+                              <div className="inline-block bg-red-500/20 px-4 py-2 rounded-lg">
+                                <p className="text-red-400 font-bold text-2xl">96% WASTE</p>
+                              </div>
+                            </div>
+                          </div>
+
+                          {/* VeryTargeted Box - Teal/Success */}
+                          <div className="bg-precision-teal/20 border-2 border-precision-teal rounded-xl p-6">
+                            <div className="text-center">
+                              <p className="text-precision-teal font-bold text-sm uppercase tracking-wide mb-2">VeryTargeted</p>
+                              <p className="text-white text-3xl font-bold mb-2">{homes * selectedTier.impressionsPerMonth} impressions</p>
+                              <p className="text-gray-300 text-sm mb-3">To your {homes} homes. The ones ready to sell.</p>
+                              <div className="inline-block bg-precision-teal/20 px-4 py-2 rounded-lg">
+                                <p className="text-precision-teal font-bold text-2xl">0% WASTE</p>
+                              </div>
+                            </div>
+                          </div>
                         </div>
-                        <div className="border-t border-precision-teal/20 pt-3">
-                          <p className="text-gray-300 text-sm leading-relaxed mb-3">
-                            <span className="text-white font-semibold">Facebook shows your ad to thousands of random people in a zip code.</span>
-                          </p>
-                          <p className="text-gray-300 text-sm leading-relaxed mb-3">
-                            We show your ad <span className="text-precision-teal font-bold">{selectedTier.impressionsPerMonth} times</span> to your specific {homes} homes.
-                          </p>
-                          <p className="text-gray-400 text-xs">
-                            Zero waste. Your targets, seeing you everywhere.
-                          </p>
+
+                        <div className="text-center pt-4">
+                          <p className="text-white font-bold text-2xl">PICK ONE</p>
                         </div>
-                      </>
+                      </div>
                     )}
 
                     {comparisonType === 'zillow' && (
@@ -264,7 +292,7 @@ export default function Pricing() {
         </div>
 
         {/* Why 16 Impressions Callout */}
-        <div className="max-w-4xl mx-auto mt-12">
+        <div className="max-w-7xl mx-auto mt-12">
           <div className="bg-gradient-to-br from-precision-teal/10 to-precision-teal/5 border border-precision-teal/30 rounded-2xl p-8">
             <div className="flex items-start gap-4">
               <div className="flex-shrink-0">
@@ -275,7 +303,7 @@ export default function Pricing() {
                 </div>
               </div>
               <div>
-                <h3 className="text-xl font-bold text-white mb-3">Why 16 impressions per day?</h3>
+                <h3 className="text-xl font-bold text-white mb-3">Why only 16 impressions a day?</h3>
                 <p className="text-gray-300 mb-3 leading-relaxed">
                   Average household: <span className="text-white font-semibold">2.5 people × 2.5 devices = ~16 daily touchpoints</span>
                 </p>
@@ -288,7 +316,7 @@ export default function Pricing() {
         </div>
 
         {/* What's Included */}
-        <div className="max-w-4xl mx-auto mt-16">
+        <div className="max-w-7xl mx-auto mt-16">
           <h3 className="text-2xl font-bold text-white text-center mb-8">What's Included</h3>
           <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
             {[

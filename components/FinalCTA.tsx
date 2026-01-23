@@ -69,49 +69,61 @@ export default function FinalCTA() {
           {/* Left side - CTA content */}
           <div>
             <h2 className="text-4xl sm:text-5xl font-bold text-white mb-6">
-              Get a custom proposal with zero pressure.
+              Get Your Proposal. Make Your Decision.
             </h2>
             <p className="text-xl text-gray-300 mb-8 leading-relaxed">
-              Tell us your market. We'll send you a custom proposal, video walkthrough, and your list of homes most likely to sell. No hard sell. No follow-up calls. You decide what to do with the information.
+              Tell us your market. We send you three things:
             </p>
 
-            <div className="space-y-6">
-              <div className="flex items-start space-x-4">
-                <div className="w-12 h-12 bg-precision-teal/10 rounded-xl flex items-center justify-center flex-shrink-0">
+            {/* Three Cards */}
+            <div className="grid gap-4 mb-8">
+              <div className="bg-precision-teal/10 border-2 border-precision-teal/30 rounded-xl p-6 flex items-start space-x-4">
+                <div className="flex-shrink-0 w-12 h-12 bg-precision-teal/20 rounded-lg flex items-center justify-center">
                   <svg className="w-6 h-6 text-precision-teal" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2m-3 7h3m-3 4h3m-6-4h.01M9 16h.01" />
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
                   </svg>
                 </div>
                 <div>
-                  <h3 className="text-white font-semibold mb-1">Your "likely to sell" list</h3>
-                  <p className="text-gray-400">See the homes most ready to move in your market</p>
+                  <p className="text-white font-bold text-xl mb-1">Your custom proposal</p>
+                  <p className="text-gray-400 text-sm">Pricing for your area</p>
                 </div>
               </div>
 
-              <div className="flex items-start space-x-4">
-                <div className="w-12 h-12 bg-precision-teal/10 rounded-xl flex items-center justify-center flex-shrink-0">
+              <div className="bg-precision-teal/10 border-2 border-precision-teal/30 rounded-xl p-6 flex items-start space-x-4">
+                <div className="flex-shrink-0 w-12 h-12 bg-precision-teal/20 rounded-lg flex items-center justify-center">
                   <svg className="w-6 h-6 text-precision-teal" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 10l4.553-2.276A1 1 0 0121 8.618v6.764a1 1 0 01-1.447.894L15 14M5 18h8a2 2 0 002-2V8a2 2 0 00-2-2H5a2 2 0 00-2 2v8a2 2 0 002 2z" />
                   </svg>
                 </div>
                 <div>
-                  <h3 className="text-white font-semibold mb-1">Video walkthrough</h3>
-                  <p className="text-gray-400">See exactly how this works for your area</p>
+                  <p className="text-white font-bold text-xl mb-1">Video walkthrough</p>
+                  <p className="text-gray-400 text-sm">See exactly how this works for your farm</p>
                 </div>
               </div>
 
-              <div className="flex items-start space-x-4">
-                <div className="w-12 h-12 bg-precision-teal/10 rounded-xl flex items-center justify-center flex-shrink-0">
+              <div className="bg-precision-teal/10 border-2 border-precision-teal/30 rounded-xl p-6 flex items-start space-x-4">
+                <div className="flex-shrink-0 w-12 h-12 bg-precision-teal/20 rounded-lg flex items-center justify-center">
                   <svg className="w-6 h-6 text-precision-teal" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2m-3 7h3m-3 4h3m-6-4h.01M9 16h.01" />
                   </svg>
                 </div>
                 <div>
-                  <h3 className="text-white font-semibold mb-1">Zero pressure</h3>
-                  <p className="text-gray-400">No hard sell. No follow-ups. You decide.</p>
+                  <p className="text-white font-bold text-xl mb-1">Your "likely to sell" list</p>
+                  <p className="text-gray-400 text-sm">The homes ready to move this year</p>
                 </div>
               </div>
             </div>
+
+            <p className="text-xl text-gray-300 leading-relaxed">
+              No sales call. No follow-ups. We explain everything. You decide if you want it.
+            </p>
+
+            <div className="bg-precision-teal/20 border-2 border-precision-teal rounded-xl p-6 mt-6">
+              <p className="text-white font-bold text-2xl text-center">
+                If the answer is no, you keep the list.
+              </p>
+            </div>
+
           </div>
 
           {/* Right side - Contact form */}
